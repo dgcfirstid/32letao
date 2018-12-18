@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- 出现了一个bug，因为设置了google翻译，结果因为页面是en状态时会出现 <a href="first.html">一级分类</a>标签
+会被翻译成乱码的中文，因为link引入了一个google的东西。要么关闭自动翻译。要么把en改为zh-cn -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>乐淘电商试验</title>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+  <div class="le_nav">
+    <div class="title">
+      黑马32期牛逼
+    </div>
+    <div class="user_message">
+      <img src="images/02.jpg" alt="">
+      <p>超级管理员</p>
+    </div>
+    <div class="list">
+      <ul>
+        <li>
+          <a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a>
+        </li>
+        <li>
+          <a href="javascript:;" class="category"><i class="glyphicon glyphicon-th-list"></i><span>分类管理</span></a>
+          <div class="children">
+            <a href="first.html">一级分类</a>
+            <a href="second.html">二级分类</a>
+          </div>
+        </li>
+        <li>
+          <a href="product.html"><i class="glyphicon glyphicon-tag"></i><span>商品管理</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="le_main">
+    <div class="top_icon">
+      <!-- 用Javascript：；或者#都可以让a标签在不跳转 -->
+      <a href="#" class="icon_left pull-left"><i class="glyphicon glyphicon-align-justify"></i></a>
+      <a href="#" class="icon_right pull-right"><i class="glyphicon glyphicon-log-out"></i></a>
+    </div>
+    <div class="container-fluid">
+      <ol class="breadcrumb mt_20">
+        <li><a href="index.html">管理系统</a></li>
+        <li class="active">首页</li>
+      </ol>
+      <!-- 两个盒子要放在container-fluid的父盒子里 -->
+      <div class="contain">
+        <div class="leftbox pull-left"></div>
+        <div class="rightbox pull-right"></div>
+      </div>
+    </div>
+
+    <!-- 模态框 -->
+    <div class="modal fade">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">温馨提示</h4>
+          </div>
+          <div class="modal-body">
+            <p class="red"><i class="glyphicon glyphicon-info-sign"></i>  您确定要退出后台管理系统吗？</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
+  </div>
+  <script src="./lib/jquery/jquery.js"></script>
+  <!-- bootstrap的插件 -->
+  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+  <!-- 进度条 -->
+  <script src="./lib/nprogress/nprogress.js"></script>
+  <!-- 可视化数据 -->
+  <script src="./lib/echarts/echarts.min.js"></script>
+  <script src="./js/index.js"></script>
+  <!-- 公共样式的js -->
+  <script src="./js/common.js"></script>
+</body>
+</html>

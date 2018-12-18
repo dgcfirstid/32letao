@@ -1,0 +1,126 @@
+/* lvha */
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mt_20 {
+  margin-top: 20px;
+}
+.red {
+  color: #A94442;
+}
+/* 左侧导航 */
+.le_nav {
+  position: fixed;
+  width: 180px;
+  height: 100%;
+  background-color: #222D32;
+  z-index: 999;
+  transition: all 1s;
+}
+.le_nav.hidenmenu {
+  left: -180px;
+}
+.le_nav .title{
+  width: 180px;
+  height: 50px;
+  background-color: rgb(4, 16, 24);
+  color: #fff;
+  line-height: 50px;
+  font-size: 25px;
+  text-align: center;
+}
+.le_nav .user_message {
+  font-size: 18px;
+  padding-top: 30px;
+  color: #fff;
+  text-align: center;
+  height: 180px;
+  box-sizing: border-box;
+}
+.le_nav .user_message img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+.le_nav .list{
+  padding-left: 47px;
+
+}
+.le_nav .list a {
+  display: block;
+  color: #fff;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}
+.le_nav .list .children {
+  display: none;
+
+}
+.le_nav .list .children a{
+  display: block;
+  width: 100;
+  padding-left: 20px;
+}
+
+/* 主体部分 */
+.le_main {
+  width: 100%;
+  /* background-color: lime; */
+  padding-top: 50px;
+  /* 设置这个属性后，子盒子宽度自适应时候不会崩 */
+  padding-left: 180px;
+  transition: all 1s;
+}
+.le_main.hidenmenu {
+  padding-left: 0;
+}
+.le_main .top_icon{
+  /* 为了使左边的图标显示出来 */
+  padding-left: 180px;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  background-color: #3C8DBC;
+  z-index: 998;
+  /* 设置left与top值就可以不用受到父盒子padding的影响了 
+  但父盒子里的标准流还是会受到影响的*/
+  left: 0;
+  top: 0;
+  transition: all 1s;
+}
+.le_main .top_icon.hidenmenu {
+  padding-left: 0;
+}
+.le_main .top_icon .icon_left ,
+.le_main .top_icon .icon_right {
+  width: 50px; 
+  height: 50px;
+  display: block;
+  /* background-color: pink; */
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  font-size: 20px;
+}
+.le_main .top_icon .icon_left{
+  
+}
+.le_main .contain .leftbox,
+.le_main .contain .rightbox
+{
+  width: 400px; 
+  height: 400px;
+  background-color: skyblue;
+}
