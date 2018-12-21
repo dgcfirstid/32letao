@@ -63,18 +63,18 @@
     <!--<button data-toggle="modal" data-target="#logoutModal">Launch demo modal</button>-->
     <div class="lt_content">
 
-      <button class="btn btn-default" id="addBtn">添加分类</button>
+      <button class="btn btn-default" id="addBtn">添加商品</button>
 
       <table class="table table-bordered table-hover mt_20">
         <thead>
           <tr>
-            <th>序号</th>
-            <th>商品名称</th>
-            <th>商品描述</th>
-            <th>商品库存</th>
-            <th>商品名称</th>
-            <th>商品描述</th>
-            <th>商品库存</th>
+            <th width = "10%">序号</th>
+            <th width = "25%">商品名称</th>
+            <th width = "25%">商品描述</th>
+            <th width = "10%">商品库存</th>
+            <th width = "10%">商品尺寸</th>
+            <th width = "10%">商品状态</th>
+            <th width = "10%">操作</th>
           </tr>
         </thead>
         <tbody>
@@ -84,7 +84,7 @@
 
       <div class="pull-right">
         <!-- 准备一个 ul -->
-        <ul id="paginator"></ul>
+        <ul id="pagintor"></ul>
       </div>
 
     </div>
@@ -93,6 +93,74 @@
   </div>
 
 </div>
+
+<!-- Modal -->
+<!-- 模态框大小: modal-lg大   默认大小   modal-sm小 -->
+<div class="modal fade" id="addModal" tabindex="-1">
+
+  <!-- 改变模态框大小是该下面这一行的class值 -->
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form  id="form">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">添加商品</h4>
+              </div>
+              <div class="modal-body">
+                  <div class="form-group">
+                      <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                          请选择二级分类
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Action</a></li>
+                        </ul>
+                        <input type="hidden" name="brandId">
+                      </div>
+                  </div>
+      
+                  <div class="form-group">
+                    <input type="text" name="proName" class="form-control" placeholder="请输入商品名称">
+                  </div>           
+                  <div class="form-group">
+                      <textarea name="proDesc" placeholder="请输入商品描述" class="form-control" cols="30" rows="4"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="num" class="form-control" placeholder="请输入商品库存">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="size" class="form-control" placeholder="请输入商品尺码">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="oldPrice" class="form-control" placeholder="请输入商品原价">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="price" class="form-control" placeholder="请输入商品现价">
+                  </div>
+      
+                  <div class="form-group">
+                      <label class="btn btn-default" for="fileupload">选择图片</label>
+                      <!--
+                        1. name 图片上传的name, 后台用于接收图片
+                        2. data-url  配置文件上传的接口地址
+                        3. multiple 可以让 file框, 可以多选文件  (一般用于多文件上传)
+                      -->
+                      <input multiple type="file" name="pic1" data-url="/product/addProductPic" id="fileupload" style="display: none">
+                  </div>
+                  <div class="form-group" id="imgBox">
+                    <input type="hidden" name="picStatus">
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="submit" class="btn btn-primary">添加</button>
+              </div>
+        </form>
+   
+      </div>
+    </div>
+  </div>
 
 
 <!-- Modal -->
@@ -114,17 +182,48 @@
     </div>
   </div>
 </div>
+<script  type="text/html" id="productTpl" >
+  {{ each rows v i }}
+  <tr>
+    <!-- 这里的rows和page还有size都是后台返回回来的对象里的，然后
+    渲染到页面上 -->
+    <td>{{i + 1 + (page - 1) * size }}</td>
+    <td>{{v.proName}}</td>
+    <td>{{v.proDesc}}</td>
+    <!-- 这里注意，如果少了一个花括号会报错，整个模板都不会执行 -->
+    <td>{{v.num}}</td>
+    <td>{{v.size}}</td>
+    <td>{{v.status === 1 ? "已上架" : "已下架" }}</td>
+    <td>
+      {{ if v.statu === 1}}
+        <button class="btn btn-danger">下架</button>
+      {{ else }}
+        <button class="btn btn-success">上架</button>
+      {{ /if }}
+    </td>
+  </tr>
+  {{ /each }}
+</script>
 
+<script type="text/html" id="dropdownTpl">
+  {{each rows v i}}
+  <li><a href="#" data-id={{v.id}}>{{v.brandName}}</a></li>
+  {{/each}}
+</script>
 
 
 
 <script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/isLogin.js"></script>
-
+<script src="./js/product.js"></script>
 
 </body>
 </html>

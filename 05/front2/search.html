@@ -10,15 +10,16 @@
   <!-- 引入字体图标库 -->
   <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/search.css">
 </head>
 <body>
 
 
 <div class="lt_container">
   <div class="lt_header">
-    <a href="index.html" class="icon_left"><i class="fa fa-home"></i></a>
-    <h3>乐淘云购</h3>
-    <a href="search.html" class="icon_right"><i class="fa fa-search"></i></a>
+    <!-- 返回上一页: history.go(-1);   history.back() -->
+    <a href="javascript: history.go(-1);" class="icon_left"><i class="mui-icon mui-icon-back"></i></a>
+    <h3>搜索中心</h3>
   </div>
 
   <!-- 父元素一定要有定位 -->
@@ -26,48 +27,18 @@
     <div class="mui-scroll-wrapper">
       <div class="mui-scroll">
         <!--这里放置真实显示的DOM内容-->
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
+
+        <!-- 搜索框 -->
+        <div class="lt_search">
+          <input type="text" placeholder="请输入搜索关键字" class="search_input">
+          <button class="mui-btn mui-btn-primary search_btn">搜索</button>
+        </div>
+
+        <!-- 历史记录 -->
+        <div class="lt_history">
+          <!-- 挖个巨坑 -->
+        </div>
+
       </div>
     </div>
   </div>
@@ -75,7 +46,7 @@
   <div class="lt_footer">
     <ul>
       <li>
-        <a href="index.html" class="current">
+        <a href="index.html">
           <i class="fa fa-home"></i>
           <p>首页</p>
         </a>
@@ -102,8 +73,33 @@
   </div>
 </div>
 
+<script type="text/html" id="searchTpl">
+  {{ if arr.length === 0 }}
+    <p>没有更多数据了</p>
+  {{ else }}
+    <div class="title">
+      <span class="mui-pull-left">历史记录</span>
+      <span class="mui-pull-right btn_empty"><i class="fa fa-trash"></i>清空历史</span>
+    </div>
+    <div class="content">
+      <ul>
+        {{ each arr v i }}
+        <li>
+          <a class="mui-pull-left" href="#">{{ v }}</a>
+          <i data-index="{{ i }}" class="mui-pull-right mui-icon mui-icon-closeempty btn_delete"></i>
+        </li>
+        {{ /each }}
+      </ul>
+    </div>
+  {{ /if }}
+
+</script>
+
 
 <script src="./lib/mui/js/mui.js"></script>
+<script src="./lib/zepto/zepto.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script>
+<script src="./js/search.js"></script>
 </body>
 </html>

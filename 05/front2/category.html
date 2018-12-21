@@ -10,6 +10,7 @@
   <!-- 引入字体图标库 -->
   <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/category.css">
 </head>
 <body>
 
@@ -23,51 +24,25 @@
 
   <!-- 父元素一定要有定位 -->
   <div class="lt_main">
-    <div class="mui-scroll-wrapper">
-      <div class="mui-scroll">
-        <!--这里放置真实显示的DOM内容-->
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
-        <p>我是内容</p>
+    <div class="lt_category_left">
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+          <!--这里放置真实显示的DOM内容-->
+          <ul>
+            <!-- 挖个坑 -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="lt_category_right">
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+          <!--这里放置真实显示的DOM内容-->
+          <ul>
+            <!-- 挖个坑 -->
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -75,13 +50,13 @@
   <div class="lt_footer">
     <ul>
       <li>
-        <a href="index.html" class="current">
+        <a href="index.html">
           <i class="fa fa-home"></i>
           <p>首页</p>
         </a>
       </li>
       <li>
-        <a href="category.html">
+        <a href="category.html" class="current">
           <i class="fa fa-bars"></i>
           <p>分类页</p>
         </a>
@@ -102,8 +77,33 @@
   </div>
 </div>
 
+<script type="text/html" id="leftTpl">
+  {{ each rows v i }}
+    <li><a data-id="{{ v.id }}" class="{{ i === 0 ? 'current' : '' }}" href="#">{{ v.categoryName }}</a></li>
+  {{ /each }}
+</script>
+
+<script type="text/html" id="rightTpl">
+  {{ if rows.length === 0 }}
+    <p class="nomore">没有更多数据了</p>
+  {{ else }}
+    {{ each rows v i }}
+    <li>
+      <a href="#">
+        <img src="{{ v.brandLogo }}" alt="">
+        <p>{{ v.brandName }}</p>
+      </a>
+    </li>
+    {{ /each }}
+  {{ /if }}
+
+</script>
+
 
 <script src="./lib/mui/js/mui.js"></script>
+<script src="./lib/zepto/zepto.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script>
+<script src="./js/category.js"></script>
 </body>
 </html>

@@ -1,0 +1,34 @@
+.lt_nav {
+    padding: 10px;
+}
+.lt_nav li{
+    float: left;
+    width: 33.33%;
+}
+/* 商品展示 */
+.lt_product{
+    padding: 10px;
+}
+.lt_product li{
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.lt_product li span:first-child {
+    color: red;
+}
+.lt_product li span:last-child {
+    text-decoration: line-through;
+}
+.lt_product li:nth-child(even){
+    float: left;
+    width:48%;
+    
+}
+.lt_product li:nth-child(odd){
+    float: right;
+    width: 48%;
+}
+

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>乐淘商城</title>
+  <!-- meta:vp + tab 生成视口 -->
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="./lib/mui/css/mui.css">
+  <!-- 引入字体图标库 -->
+  <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+
+
+<div class="lt_container">
+  <div class="lt_header">
+    <a href="index.html" class="icon_left"><i class="fa fa-home"></i></a>
+    <h3>乐淘云购</h3>
+    <a href="search.html" class="icon_right"><i class="fa fa-search"></i></a>
+  </div>
+
+  <!-- 父元素一定要有定位 -->
+  <div class="lt_main">
+    <!-- 要设置区域滚动就必须设置两个嵌套的div，一个类为mui-scroll-wrapper，
+    另一个类为mui-scroll -->
+    <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+            <!--这里放置真实显示的DOM内容-->
+    
+            <div class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop" >
+                    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                      <a href="#">
+                        <img src="./images/banner4.png">
+                      </a>
+                    </div>
+                    <!-- 第一张 -->
+                    <div class="mui-slider-item">
+                      <a href="#">
+                        <img src="./images/banner1.png">
+                      </a>
+                    </div>
+                    <!-- 第二张 -->
+                    <div class="mui-slider-item">
+                      <a href="#">
+                        <img src="./images/banner2.png">
+                      </a>
+                    </div>
+                    <!-- 第三张 -->
+                    <div class="mui-slider-item">
+                      <a href="#">
+                        <img src="./images/banner3.png">
+                      </a>
+                    </div>
+                    <!-- 第四张 -->
+                    <div class="mui-slider-item">
+                      <a href="#">
+                        <img src="./images/banner4.png">
+                      </a>
+                    </div>
+                    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                      <a href="#">
+                        <img src="./images/banner1.png">
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- 小圆点部分 -->
+                  <div class="mui-slider-indicator">
+                    <div class="mui-indicator mui-active"></div>
+                    <div class="mui-indicator"></div>
+                    <div class="mui-indicator"></div>
+                    <div class="mui-indicator"></div>
+                  </div>
+            </div>
+
+            <!-- 导航 -->
+            <div class="lt_nav">
+              <!-- 清除父盒子高度塌陷mui-clearfix -->
+              <ul class="mui-clearfix">
+                <li><a href="#"><img src="./images/nav1.png" alt=""></a></li>
+                <li><a href="#"><img src="./images/nav2.png" alt=""></a></li>
+                <li><a href="#"><img src="./images/nav3.png" alt=""></a></li>
+                <li><a href="#"><img src="./images/nav4.png" alt=""></a></li>
+                <li><a href="#"><img src="./images/nav5.png" alt=""></a></li>
+                <li><a href="#"><img src="./images/nav6.png" alt=""></a></li>
+              </ul>
+            </div>
+
+            <!-- 图片 -->
+            <div class="lt_product">
+              <ul class="mui-clearfix">
+                <li>
+                  <a href="#">
+                    <img src="./images/product.jpg" alt="">
+                    <p>
+                      <span class="price">&yen;560</span>
+                      <span class="oldPrice">&yen;660</span>
+                    </p>
+                    <button class="mui-btn mui-btn-primary">立即购买</button>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="./images/product.jpg" alt="">
+                    <p>
+                      <span class="price">&yen;560</span>
+                      <span class="oldPrice">&yen;660</span>
+                    </p>
+                    <button class="mui-btn mui-btn-primary">立即购买</button>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="./images/product.jpg" alt="">
+                    <p>
+                      <span class="price">&yen;560</span>
+                      <span class="oldPrice">&yen;660</span>
+                    </p>
+                    <button class="mui-btn mui-btn-primary">立即购买</button>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="./images/product.jpg" alt="">
+                    <p>
+                      <span class="price">&yen;560</span>
+                      <span class="oldPrice">&yen;660</span>
+                    </p>
+                    <button class="mui-btn mui-btn-primary">立即购买</button>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  <div class="lt_footer">
+    <ul>
+      <li>
+        <a href="index.html" class="current">
+          <i class="fa fa-home"></i>
+          <p>首页</p>
+        </a>
+      </li>
+      <li>
+        <a href="category.html">
+          <i class="fa fa-bars"></i>
+          <p>分类页</p>
+        </a>
+      </li>
+      <li>
+        <a href="cart.html">
+          <i class="fa fa-shopping-cart"></i>
+          <p>购物车</p>
+        </a>
+      </li>
+      <li>
+        <a href="user.html">
+          <i class="fa fa-user"></i>
+          <p>用户中心</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<script src="./lib/mui/js/mui.js"></script>
+<!-- 这个common插件必须要引入，区域滚动无法执行 -->
+<script src="./js/common.js"></script>
+
+</body>
+</html>
